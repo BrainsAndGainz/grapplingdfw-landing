@@ -49,6 +49,51 @@
         ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #dc2626; }
     </style>
+
+    <!-- Form Submission Handler -->
+    <script>
+    async function submitLead(event) {
+      event.preventDefault();
+      const submitBtn = document.getElementById('submitBtn');
+      submitBtn.disabled = true;
+      submitBtn.innerText = "Processing...";
+      
+      const payload = {
+        firstName: document.getElementById('firstName').value,
+        lastName: document.getElementById('lastName').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+        message: document.getElementById('message').value,
+      };
+      
+      try {
+        const response = await fetch('https://formlanding-h3fhg3d5f8bkhqh4.southcentralus-01.azurewebsites.net/api/leads', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        
+        if (response.ok) {
+          submitBtn.innerText = "✓ Submitted!";
+          submitBtn.classList.add('bg-green-600', 'hover:bg-green-700');
+          submitBtn.classList.remove('bg-brand-accent', 'hover:bg-brand-accentHover');
+          document.getElementById('leadForm').reset();
+          setTimeout(() => {
+            submitBtn.innerText = "Get My Free Week Pass";
+            submitBtn.classList.remove('bg-green-600', 'hover:bg-green-700');
+            submitBtn.classList.add('bg-brand-accent', 'hover:bg-brand-accentHover');
+            submitBtn.disabled = false;
+          }, 3000);
+        } else {
+          throw new Error(`Submission failed with status ${response.status}`);
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        submitBtn.innerText = "Try Again";
+        submitBtn.disabled = false;
+      }
+    }
+    </script>
 </head>
 <body class="bg-brand-dark text-white font-sans antialiased selection:bg-brand-accent selection:text-white">
 
@@ -72,7 +117,7 @@
                 <a href="#register" class="hover:text-brand-accent transition-colors py-2">Contact</a>
             </div>
             <div class="flex-shrink-0">
-                <a href="#register" class="inline-flex items-center justify-center bg-brand-accent text-white font-semibold text-[11px] sm:text-xs lg:text-sm px-3 sm:px-5 py-2 sm:py-2.5 rounded-md hover:bg-brand-accentHover hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 shadow-lg shadow-red-500/10 min-w-[44px] min-h-[44px] whitespace-nowrap">
+                <a href="#register" class="inline-flex items-center justify-center bg-brand-accent text-white font-semibold text-[11px] sm:text-xs lg:text-sm px-3 sm:px-5 py-2 sm:py-2.5 rounded-md hover:bg-brand-accentHover transition-colors">
                     Claim Free Week
                 </a>
             </div>
@@ -95,10 +140,10 @@
                 Welcome to Bedford's premier No-Gi training center. Experience a world-class grappling environment featuring legendary lineages and elite system mechanics under Coach Chauncey.
             </p>
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a href="#register" class="w-full sm:w-auto inline-flex items-center justify-center bg-brand-accent text-white font-bold text-base px-8 py-4 rounded-md hover:bg-brand-accentHover hover:shadow-xl hover:shadow-red-500/20 active:scale-[0.98] transition-all min-w-[44px] min-h-[44px]">
+                <a href="#register" class="w-full sm:w-auto inline-flex items-center justify-center bg-brand-accent text-white font-bold text-base px-8 py-4 rounded-md hover:bg-brand-accentHover transition-colors">
                     Activate Your 1-Week Free Pass
                 </a>
-                <a href="#programs" class="w-full sm:w-auto inline-flex items-center justify-center bg-zinc-900 border border-zinc-800 text-zinc-300 hover:text-white hover:bg-zinc-800 font-medium text-base px-8 py-4 rounded-md transition-all min-w-[44px] min-h-[44px]">
+                <a href="#programs" class="w-full sm:w-auto inline-flex items-center justify-center bg-zinc-900 border border-zinc-800 text-zinc-300 hover:text-white hover:bg-zinc-800 font-medium text-base px-8 py-4 rounded-md transition-colors">
                     Explore Audiences
                 </a>
             </div>
@@ -151,6 +196,65 @@
     </section>
 
     <!-- Lead Capturing Registration Form Section -->
-async function submitLead(event) {event.preventDefault();const submitBtn = document.getElementById('submitBtn');submitBtn.disabled = true;submitBtn.innerText = "Processing...";const payload = {firstName: document.getElementById('first_name').value,lastName: document.getElementById('last_name').value,phone: document.getElementById('cell_phone').value,email: document.getElementById('email_address').value};try {// Live function URL generated from your successful workflow build runconst azureFunctionUrl = 'https://formlanding-h3fhg3d5f8bkhqh4.southcentralus-01.azurewebsites.net/';const response = await fetch(azureFunctionUrl, {method: 'POST',headers: { 'Content-Type': 'application/json' },body: JSON.stringify(payload)});if (response.ok) {if (typeof gtag === 'function') {gtag('event', 'generate_lead', {'event_category': 'engagement','event_label': 'Spark Campaign Sign Up'});}alert("Thank you! Your information has been registered smoothly.");document.getElementById('leadForm').reset();} else {alert("There was an error saving your entry. Please try again.");}} catch (error) {console.error("Error Processing Submit Request:", error);alert("Network connection error. Please try again later.");} finally {submitBtn.disabled = false;submitBtn.innerText = "Submit Form & Secure Pass";}}
+    <section id="register" class="py-16 lg:py-24 px-4 border-b border-zinc-900 bg-zinc-950">
+        <div class="max-w-2xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="font-display text-3xl lg:text-4xl font-bold uppercase tracking-tight mb-4">Claim Your Free Week</h2>
+                <p class="text-brand-muted text-sm sm:text-base font-light">Join the elite No-Gi training community. No commitment required.</p>
+            </div>
+            
+            <form id="leadForm" class="bg-brand-card border border-zinc-800 rounded-xl p-8 space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <input 
+                        type="text" 
+                        id="firstName" 
+                        placeholder="First Name" 
+                        required 
+                        class="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-4 py-3 text-white placeholder-zinc-500 focus:border-brand-accent focus:outline-none transition"
+                    >
+                    <input 
+                        type="text" 
+                        id="lastName" 
+                        placeholder="Last Name" 
+                        required 
+                        class="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-4 py-3 text-white placeholder-zinc-500 focus:border-brand-accent focus:outline-none transition"
+                    >
+                </div>
+                
+                <input 
+                    type="email" 
+                    id="email" 
+                    placeholder="Email Address" 
+                    required 
+                    class="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-4 py-3 text-white placeholder-zinc-500 focus:border-brand-accent focus:outline-none transition"
+                >
+                
+                <input 
+                    type="tel" 
+                    id="phone" 
+                    placeholder="Phone Number" 
+                    required 
+                    class="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-4 py-3 text-white placeholder-zinc-500 focus:border-brand-accent focus:outline-none transition"
+                >
+                
+                <textarea 
+                    id="message" 
+                    placeholder="Tell us about your grappling background (optional)" 
+                    rows="4" 
+                    class="w-full bg-zinc-900 border border-zinc-800 rounded-lg px-4 py-3 text-white placeholder-zinc-500 focus:border-brand-accent focus:outline-none transition resize-none"
+                ></textarea>
+                
+                <button 
+                    type="submit" 
+                    id="submitBtn" 
+                    onclick="submitLead(event)"
+                    class="w-full bg-brand-accent text-white font-bold py-3 rounded-lg hover:bg-brand-accentHover transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                    Get My Free Week Pass
+                </button>
+            </form>
+        </div>
+    </section>
 
-    
+</body>
+</html>
