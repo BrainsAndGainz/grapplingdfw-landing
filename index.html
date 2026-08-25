@@ -1,17 +1,27 @@
-# grapplingdfw.com - Official JJ Machado Branded Landing Page
-
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
+    <!-- GOOGLE TAG (gtag.js) PLACEHOLDER FOR PAID ADS TRACKING -->
+    <script async src="https://googletagmanager.com"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-TRACKING_ID');
+    </script>
+    <!-- END OF GOOGLE TAG CODE -->
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DFW Premier No-Gi Jiu Jitsu | 10th Planet Partner Center Bedford</title>
+    
     <!-- Google Fonts Links -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+    
     <!-- Tailwind CSS via Whitelisted CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -19,15 +29,14 @@
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
                         display: ['Oswald', 'sans-serif'],
-
                     },
                     colors: {
                         brand: {
-                            accent: '#dc2626', /* Official JJ Machado premium crimson/cardinal red */
-                            accentHover: '#b91c1c', /* Darker crimson for sleek hover states */
-                            dark: '#09090b', /* Premium deep black canvas background */
-                            card: '#18181b', /* Slightly lighter zinc for clean structural cards */
-                            muted: '#a1a1aa' /* Readable gray for descriptions */
+                            accent: '#dc2626', 
+                            accentHover: '#b91c1c', 
+                            dark: '#09090b', 
+                            card: '#18181b', 
+                            muted: '#a1a1aa' 
                         }
                     }
                 }
@@ -35,21 +44,10 @@
         }
     </script>
     <style>
-        /* Custom scrollbar matching dark aesthetic */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #09090b;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #27272a;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #dc2626;
-        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #09090b; }
+        ::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #dc2626; }
     </style>
 </head>
 <body class="bg-brand-dark text-white font-sans antialiased selection:bg-brand-accent selection:text-white">
@@ -59,16 +57,13 @@
         🚨 Re-Launching Bedford: Featuring Elite Instruction from <span class="text-brand-accent font-semibold">10th Planet Black Belt Coach Chauncey</span>. Get Full Access to 3 DFW Locations!
     </div>
 
-
     <!-- Main Navigation Header -->
     <header class="sticky top-0 z-50 bg-brand-dark/90 backdrop-blur-md border-b border-zinc-900 px-4 lg:px-8 py-4">
         <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
-            <!-- Branding Text with Mobile Flex Optimization -->
             <div class="flex flex-col min-w-0">
                 <span class="font-display text-base sm:text-xl lg:text-2xl font-bold tracking-tight text-white whitespace-nowrap">JJ MACHADO <span class="text-brand-accent">BEDFORD</span></span>
                 <span class="text-[9px] sm:text-[10px] uppercase tracking-widest text-brand-muted font-medium block truncate">Elite No-Gi Training Center</span>
             </div>
-            <!-- Mid Viewport Desktop Direct Nav Links -->
             <div class="hidden md:flex items-center space-x-6 text-sm font-medium text-zinc-300 flex-shrink-0">
                 <a href="#lineage" class="hover:text-brand-accent transition-colors py-2">The Lineage</a>
                 <a href="#coaches" class="hover:text-brand-accent transition-colors py-2">Coaching Staff</a>
@@ -76,10 +71,8 @@
                 <a href="#video" class="hover:text-brand-accent transition-colors py-2">Inside Look</a>
                 <a href="#register" class="hover:text-brand-accent transition-colors py-2">Contact</a>
             </div>
-            <!-- Adaptive Sized Button Trigger Grid Element -->
             <div class="flex-shrink-0">
                 <a href="#register" class="inline-flex items-center justify-center bg-brand-accent text-white font-semibold text-[11px] sm:text-xs lg:text-sm px-3 sm:px-5 py-2 sm:py-2.5 rounded-md hover:bg-brand-accentHover hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 shadow-lg shadow-red-500/10 min-w-[44px] min-h-[44px] whitespace-nowrap">
-
                     Claim Free Week
                 </a>
             </div>
@@ -99,7 +92,6 @@
                 <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-200 to-brand-accent">No-Gi Grappling</span>
             </h1>
             <p class="text-base sm:text-xl text-brand-muted max-w-2xl mx-auto mb-10 font-light leading-relaxed">
-
                 Welcome to Bedford's premier No-Gi training center. Experience a world-class grappling environment featuring legendary lineages and elite system mechanics under Coach Chauncey.
             </p>
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -113,322 +105,52 @@
         </div>
     </section>
 
-    <!-- Historic Lineage Section (Attracts Hardcore Competitors) -->
+    <!-- Historic Lineage Section -->
     <section id="lineage" class="py-16 lg:py-24 px-4 bg-zinc-950 border-b border-zinc-900">
         <div class="max-w-6xl mx-auto">
             <div class="text-center max-w-2xl mx-auto mb-16">
                 <h2 class="font-display text-3xl lg:text-4xl font-bold uppercase tracking-tight mb-4">The Full Circle Lineage</h2>
                 <p class="text-brand-muted text-sm sm:text-base font-light">
-
                     We aren't a generic startup gym. Our lineage represents absolute mastery spanning generations of legendary ground tactics.
                 </p>
             </div>
             
-            <!-- Lineage Horizontal / Vertical Flowchart -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative items-stretch">
-                <!-- Master 1 -->
-                <div class="bg-brand-card border border-zinc-800/60 rounded-xl p-6 flex flex-col justify-between text-center md:text-left relative">
-                    <div>
-                        <div class="text-xs uppercase tracking-widest text-brand-accent font-semibold mb-2">The Legend</div>
-                        <h3 class="font-display text-xl lg:text-2xl font-bold tracking-wide uppercase mb-3">Jean Jacques Machado</h3>
-                        <p class="text-xs lg:text-sm text-brand-muted leading-relaxed font-light">
-                            One of the most revered figures in Brazilian Jiu-Jitsu history. Redefining mechanical efficiency, guard manipulation, and world-class submission strategy.
-                        </p>
-                    </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+                <div class="bg-brand-card border border-zinc-800/60 rounded-xl p-6 text-center md:text-left">
+                    <div class="text-xs uppercase tracking-widest text-brand-accent font-semibold mb-2">The Legend</div>
+                    <h3 class="font-display text-xl lg:text-2xl font-bold tracking-tight mb-2">Jean Jacques Machado</h3>
+                    <p class="text-zinc-400 text-sm font-light">Redefining mechanical efficiency, guard manipulation, and world-class submission strategy.</p>
                 </div>
-                <!-- Master 2 -->
-                <div class="bg-brand-card border border-zinc-800/60 rounded-xl p-6 flex flex-col justify-between text-center md:text-left relative">
-                    <div class="hidden md:block absolute top-1/2 -left-4 w-4 h-[1px] bg-zinc-800 transform -translate-y-1/2"></div>
-
-                    <div>
-                        <div class="text-xs uppercase tracking-widest text-brand-accent font-semibold mb-2">The Innovator</div>
-                        <h3 class="font-display text-xl lg:text-2xl font-bold tracking-wide uppercase mb-3">Eddie Bravo</h3>
-                        <p class="text-xs lg:text-sm text-brand-muted leading-relaxed font-light">
-                            Jean Jacques Machado black belt and creator of 10th Planet Jiu Jitsu. Revolutionized No-Gi mechanics with Rubber Guard, Lockdown setups, and Quarter Guard structures.
-                        </p>
-                    </div>
+                <div class="bg-brand-card border border-zinc-800/60 rounded-xl p-6 text-center md:text-left">
+                    <div class="text-xs uppercase tracking-widest text-brand-accent font-semibold mb-2">The Innovator</div>
+                    <h3 class="font-display text-xl lg:text-2xl font-bold tracking-tight mb-2">Eddie Bravo</h3>
+                    <p class="text-zinc-400 text-sm font-light">Revolutionized No-Gi mechanics with Rubber Guard, Lockdown setups, and Quarter Guard structures.</p>
                 </div>
-                <!-- Master 3 -->
-                <div class="bg-brand-card border border-brand-accent/40 rounded-xl p-6 flex flex-col justify-between text-center md:text-left relative shadow-lg shadow-red-500/5">
-                    <div class="hidden md:block absolute top-1/2 -left-4 w-4 h-[1px] bg-zinc-800 transform -translate-y-1/2"></div>
-                    <div>
-                        <div class="text-xs uppercase tracking-widest text-brand-accent font-semibold mb-2">Your Head Coach</div>
-                        <h3 class="font-display text-xl lg:text-2xl font-bold tracking-wide uppercase mb-3">Coach Chauncey</h3>
-                        <p class="text-xs lg:text-sm text-brand-muted leading-relaxed font-light">
-                            Direct black belt under Eddie Bravo. Bringing authentic, elite, cutting-edge system applications to the Bedford mats every single Tuesday and Thursday night.
-                        </p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Coaching Staff Matrix (UPDATED WITH REAL ROSTER CARDS) -->
-    <section id="coaches" class="py-16 lg:py-24 px-4 bg-brand-dark border-b border-zinc-900">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center max-w-2xl mx-auto mb-16">
-                <h2 class="font-display text-3xl lg:text-4xl font-bold uppercase tracking-tight mb-4">Meet Our Coaching Team</h2>
-                <p class="text-brand-muted text-sm sm:text-base font-light">
-                    Train under a verified network of elite black belt professionals dedicated to safety, technical precision, and structured progression.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
-                <!-- Coach 1: Eric Acha -->
-                <div class="bg-brand-card border border-zinc-800/80 rounded-xl p-6 flex flex-col justify-between group hover:border-zinc-700 transition-all duration-300">
-                    <div>
-                        <div class="text-xs uppercase tracking-widest text-brand-accent font-semibold mb-1">Founder & Head Instructor</div>
-
-                        <h3 class="font-display text-2xl font-bold uppercase tracking-wide mb-3 text-white">Professor Eric Acha</h3>
-                        <p class="text-zinc-400 text-sm font-light leading-relaxed mb-4">
-                            A 3rd Degree Black Belt directly under Master Jean Jacques Machado with 22+ years of training and 15 years of professional coaching. A retired California Senior Police Inspector and use-of-force expert, Professor Eric runs the tactical framework and technical standards across our regional locations.
-                        </p>
-                    </div>
-                    <div class="text-xs text-brand-muted font-medium border-t border-zinc-800/60 pt-4 flex items-center justify-between">
-                        <span>Rank: 3rd Degree Black Belt</span>
-                        <span class="text-zinc-500">Founder / Use of Force Expert</span>
-                    </div>
-                </div>
-
-                <!-- Coach 2: Coach Chauncey (TUE / THU NIGHT SPECIALIST FEATURED) -->
-                <div class="bg-brand-card border-2 border-brand-accent rounded-xl p-6 flex flex-col justify-between shadow-xl shadow-red-500/5 relative overflow-hidden group hover:border-red-500 transition-all duration-300">
-                    <div class="absolute top-0 right-0 bg-brand-accent text-white font-display text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-bl">
-                        Tue / Thu Night Feature
-                    </div>
-                    <div>
-                        <div class="text-xs uppercase tracking-widest text-brand-accent font-bold mb-1">Submission System Specialist</div>
-                        <h3 class="font-display text-2xl font-bold uppercase tracking-wide mb-3 text-white">Coach Chauncey Nu'usolia</h3>
-
-                        <p class="text-zinc-300 text-sm font-light leading-relaxed mb-4">
-                            An elite 10th Planet Jiu Jitsu Black Belt under Master Eddie Bravo. Coach Chauncey anchors our Bedford location every <strong class="text-white font-semibold">Tuesday and Thursday evening</strong>, utilizing his direct lineage background to break down advanced rubber guard, lockdowns, and modern submission architectures.
-                        </p>
-                    </div>
-                    <div class="text-xs text-brand-accent font-semibold border-t border-zinc-800/60 pt-4 flex items-center justify-between">
-                        <span>Rank: 10th Planet Black Belt</span>
-                        <span class="uppercase tracking-wider text-[10px] bg-red-950/50 px-2 py-0.5 rounded border border-brand-accent/35">Evening Shift Specialist</span>
-                    </div>
-                </div>
-
-                <!-- Coach 3: Professor Damion Taylor -->
-                <div class="bg-brand-card border border-zinc-800/80 rounded-xl p-6 flex flex-col justify-between group hover:border-zinc-700 transition-all duration-300">
-                    <div>
-                        <div class="text-xs uppercase tracking-widest text-zinc-500 mb-1">Bedford Resident Instructor</div>
-                        <h3 class="font-display text-2xl font-bold uppercase tracking-wide mb-3 text-white">Professor Damion Taylor</h3>
-                        <p class="text-zinc-400 text-sm font-light leading-relaxed mb-4">
-                            With over 17 years of extensive Jiu Jitsu training, Professor Damion is highly recognized across DFW for his absolute technical precision and granular attention to detail. He fosters an encouraging, ego-free, and highly structured environment optimized to help practitioners of all levels reach their potential safely.
-                        </p>
-                    </div>
-
-                    <div class="text-xs text-brand-muted font-medium border-t border-zinc-800/60 pt-4 flex items-center justify-between">
-                        <span>Experience: 17+ Years Training</span>
-                        <span class="text-zinc-500">Mixed & Foundations Sessions</span>
-                    </div>
+                <div class="bg-brand-card border border-zinc-800/60 rounded-xl p-6 text-center md:text-left">
+                    <div class="text-xs uppercase tracking-widest text-brand-accent font-semibold mb-2">Your Head Coach</div>
+                    <h3 class="font-display text-xl lg:text-2xl font-bold tracking-tight mb-2">Coach Chauncey</h3>
+                    <p class="text-zinc-400 text-sm font-light">Direct black belt under Eddie Bravo. Bringing authentic, elite, cutting-edge system applications.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Embedded Instagram Reel Announcement (Visual Proof) -->
-    <section id="video" class="py-16 lg:py-24 px-4 bg-zinc-950 border-b border-zinc-900">
+    <!-- Video Announcement Section -->
+    <section id="video" class="py-16 lg:py-24 px-4 border-b border-zinc-900 bg-brand-dark">
         <div class="max-w-4xl mx-auto text-center">
-            <div class="max-w-2xl mx-auto mb-10">
-                <h2 class="font-display text-3xl lg:text-4xl font-bold uppercase tracking-tight mb-4">Official Video Announcement</h2>
-                <p class="text-brand-muted text-sm sm:text-base font-light">
-                    Watch the official announcement revealing our pure No-Gi transition and introducing Coach Chauncey to the Bedford mats.
-                </p>
-            </div>
+            <h2 class="font-display text-3xl lg:text-4xl font-bold uppercase tracking-tight mb-4">Official Video Announcement</h2>
+            <p class="text-brand-muted text-sm sm:text-base font-light mb-8">Watch the official announcement revealing our pure No-Gi transition.</p>
             
-
-            <!-- Non-Looping Native Instagram Iframe Embed Wrapper -->
-         <div class="relative w-full max-w-[400px] mx-auto bg-zinc-950 rounded-xl border border-zinc-800 overflow-hidden shadow-2xl">
-            <video controls preload="metadata" class="w-full h-[480px] sm:h-[580px] block">
-               <source src="https://sagrapplingdfw.blob.core.windows.net/$web/jjm-10p-voiceover.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-    </section>
-
-    <!-- Targeted Persona Modules (Easy for Moms / Exciting for Athletes) -->
-    <section id="programs" class="py-16 lg:py-24 px-4 bg-brand-dark border-b border-zinc-900">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center max-w-2xl mx-auto mb-16">
-                <h2 class="font-display text-3xl lg:text-4xl font-bold uppercase tracking-tight mb-4">Tailored Systems for Every Intent</h2>
-
-                <p class="text-brand-muted text-sm sm:text-base font-light">
-                    Whether you are an aspiring elite competitor, a high school wrestler, or a local mother looking out for family safety, we have custom architectures ready for you.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <!-- Persona 1: Competitors -->
-                <div class="bg-brand-card border border-zinc-800/80 rounded-xl p-8 flex flex-col justify-between group hover:border-zinc-700 transition-all duration-300">
-                    <div>
-                        <div class="w-10 h-10 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center text-brand-accent mb-6 font-bold text-sm">01</div>
-                        <h3 class="font-display text-2xl font-bold uppercase tracking-wide mb-4 text-white">The Serious Competitor</h3>
-                        <p class="text-zinc-400 text-sm font-light leading-relaxed mb-6">
-                            Master advanced rubber guard matrices, detailed leg lock entanglements, and high-pressure submissions. Sharpen your arsenal under verified Eddie Bravo lineages alongside an elite, driven sparring squad.
-                        </p>
-                    </div>
-                    <ul class="space-y-2.5 text-xs text-zinc-300 border-t border-zinc-800/60 pt-6">
-                        <li class="flex items-center gap-2"><span class="text-brand-accent">✔</span> Advanced System Applications</li>
-                        <li class="flex items-center gap-2"><span class="text-brand-accent">✔</span> Live Submission Isolation Matches</li>
-                        <li class="flex items-center gap-2"><span class="text-brand-accent">✔</span> Direct Lineage Knowledge Access</li>
-
-                    </ul>
-                </div>
-
-                <!-- Persona 2: Wrestlers -->
-                <div class="bg-brand-card border border-zinc-800/80 rounded-xl p-8 flex flex-col justify-between group hover:border-zinc-700 transition-all duration-300">
-                    <div>
-                        <div class="w-10 h-10 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center text-brand-accent mb-6 font-bold text-sm">02</div>
-                        <h3 class="font-display text-2xl font-bold uppercase tracking-wide mb-4 text-white">The Off-Season Wrestler</h3>
-                        <p class="text-zinc-400 text-sm font-light leading-relaxed mb-6">
-                            Keep your mat positioning sharp, retain dynamic conditioning, and learn to counter and attack submission locks. Perfect your underhooks, dynamic scrambles, and front headlock control systems.
-                        </p>
-                    </div>
-                    <ul class="space-y-2.5 text-xs text-zinc-300 border-t border-zinc-800/60 pt-6">
-                        <li class="flex items-center gap-2"><span class="text-brand-accent">✔</span> Optimized for Scramble Control</li>
-                        <li class="flex items-center gap-2"><span class="text-brand-accent">✔</span> Dedicated Athlete Off-Season Rate</li>
-                        <li class="flex items-center gap-2"><span class="text-brand-accent">✔</span> Strict No-Gi Athletic Rulesets</li>
-                    </ul>
-                </div>
-
-
-                <!-- Persona 3: Moms & Families -->
-                <div class="bg-brand-card border border-brand-accent/20 rounded-xl p-8 flex flex-col justify-between group hover:border-brand-accent/40 transition-all duration-300 shadow-md shadow-red-500/5">
-                    <div>
-                        <div class="w-10 h-10 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center text-brand-accent mb-6 font-bold text-sm">03</div>
-                        <h3 class="font-display text-2xl font-bold uppercase tracking-wide mb-4 text-white">Everyday Adults & Families</h3>
-                        <p class="text-zinc-400 text-sm font-light leading-relaxed mb-6">
-                            Built completely around physical safety, personal discipline, and modern fitness. Zero complex uniforms required. Gain access to 3 local DFW facilities to keep scheduling frictionless for busy families.
-                        </p>
-                    </div>
-                    <ul class="space-y-2.5 text-xs text-zinc-300 border-t border-brand-accent/40 pt-6">
-                        <li class="flex items-center gap-2"><span class="text-brand-accent">✔</span> Safe, Structured Foundations</li>
-                        <li class="flex items-center gap-2"><span class="text-brand-accent">✔</span> Clear Multi-Location Access Perks</li>
-                        <li class="flex items-center gap-2"><span class="text-brand-accent">✔</span> Inclusive, Ego-Free Class Culture</li>
-                    </ul>
-                </div>
+            <div class="relative w-full max-w-[400px] mx-auto bg-zinc-950 rounded-xl border border-zinc-800 overflow-hidden shadow-2xl">
+                <video controls preload="metadata" playsinline class="w-full h-[480px] sm:h-[580px] block">
+                    <source src="https://windows.net" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
             </div>
         </div>
     </section>
 
-
-    <!-- The Integrated Core Action Hub & Spark Form -->
-    <section id="register" class="py-16 lg:py-24 px-4 bg-zinc-950">
-        <div class="max-w-6xl mx-auto">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-                
-                <!-- Left Details Grid Column -->
-                <div class="lg:col-span-6 space-y-8">
-                    <div>
-                        <span class="text-xs uppercase tracking-widest text-brand-accent font-bold block mb-2">Location & Details</span>
-                        <h2 class="font-display text-3xl lg:text-5xl font-bold uppercase tracking-tight text-white mb-4">Visit The Bedford Mats</h2>
-                        <p class="text-brand-muted font-light text-sm sm:text-base leading-relaxed">
-                            Ready to start your trial week? Drop by our primary training center or reach out via our centralized coordination staff below.
-                        </p>
-                    </div>
-
-                    <!-- Direct Contact Anchors -->
-                    <div class="space-y-4">
-                        <div class="flex items-start gap-4">
-                            <div class="text-brand-accent text-lg mt-0.5">📍</div>
-
-                            <div>
-                                <h4 class="text-sm font-semibold uppercase text-zinc-300 tracking-wider">Address Location</h4>
-                                <p class="text-sm text-brand-muted font-light">2843 Central Dr, Bedford, TX 76021</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-4">
-                            <div class="text-brand-accent text-lg mt-0.5">📞</div>
-                            <div>
-                                <h4 class="text-sm font-semibold uppercase text-zinc-300 tracking-wider">Direct Telephone Line</h4>
-                                <p class="text-sm text-brand-muted font-light">817-623-0052</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-4">
-                            <div class="text-brand-accent text-lg mt-0.5">✉</div>
-                            <div>
-                                <h4 class="text-sm font-semibold uppercase text-zinc-300 tracking-wider">Central Email Portal</h4>
-                                <p class="text-sm text-brand-muted font-light">bedford@jjmachadodfw.com</p>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <!-- Scheduling Framework -->
-                    <div class="p-6 bg-zinc-900 border border-zinc-800/80 rounded-xl">
-                        <h4 class="text-xs uppercase tracking-widest text-brand-accent font-bold mb-3">Shift Layout Schedule</h4>
-                        <p class="text-xs text-zinc-400 font-light leading-relaxed mb-4">
-                            Classes run actively across three convenient daytime shifts to accommodate various lifestyles:
-                        </p>
-                        <div class="grid grid-cols-3 gap-2 text-center text-xs font-medium uppercase tracking-wide">
-                            <div class="bg-zinc-950 border border-zinc-800 p-2.5 rounded text-zinc-200">🌅 6:00 AM</div>
-                            <div class="bg-zinc-900 border border-zinc-800 p-2.5 rounded text-zinc-200">☀️ 12:00 PM</div>
-                            <div class="bg-zinc-900 border border-zinc-800 p-2.5 rounded text-zinc-200">🌙 Evening</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Right Form Grid Column: Spark Intake Container -->
-                <div class="lg:col-span-6 bg-brand-card border border-zinc-800 rounded-2xl p-6 sm:p-10 shadow-2xl relative">
-                    <div class="absolute -top-3 left-6 bg-brand-accent text-white text-xs font-bold uppercase tracking-wider text-[10px] px-3 py-1 rounded">
-
-                        Secure Spot Instantly
-                    </div>
-                    <h3 class="font-display text-2xl lg:text-3xl font-bold uppercase tracking-tight mb-2">Claim 1-Week Free Trial</h3>
-                    <p class="text-brand-muted text-xs sm:text-sm font-light mb-6">
-                        Fill out your active details to immediately process your temporary access pass inside our Spark Membership portal.
-                    </p>
-
-                    <!-- PASTE YOUR SPARK MEMBERSHIP EMBED CODE DIRECTLY OVER THIS FORM TAG -->
-                    <form action="#" method="POST" class="space-y-4">
-                        <div>
-                            <label class="block text-xs uppercase tracking-wider text-zinc-400 font-semibold mb-1.5" for="first_name">First Name</label>
-                            <input type="text" id="first_name" name="first_name" required placeholder="John" 
-                                class="w-full bg-zinc-900 border border-zinc-800 rounded-md px-4 py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-brand-accent transition-all min-w-[44px] min-h-[44px]">
-                        </div>
-                        <div>
-                            <label class="block text-xs uppercase tracking-wider text-zinc-400 font-semibold mb-1.5" for="last_name">Last Name</label>
-                            <input type="text" id="last_name" name="last_name" required placeholder="Doe" 
-                                class="w-full bg-zinc-900 border border-zinc-800 rounded-md px-4 py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-brand-accent transition-all min-w-[44px] min-h-[44px]">
-                        </div>
-
-                        <div>
-                            <label class="block text-xs uppercase tracking-wider text-zinc-400 font-semibold mb-1.5" for="cell_phone">Cell Phone Number</label>
-                            <input type="tel" id="cell_phone" name="cell_phone" required placeholder="(817) 555-0199" 
-                                class="w-full bg-zinc-900 border border-zinc-800 rounded-md px-4 py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-brand-accent transition-all min-w-[44px] min-h-[44px]">
-                        </div>
-                        <div>
-                            <label class="block text-xs uppercase tracking-wider text-zinc-400 font-semibold mb-1.5" for="email_address">Email Address</label>
-                            <input type="email" id="email_address" name="email_address" required placeholder="johndoe@gmail.com" 
-                                class="w-full bg-zinc-900 border border-zinc-800 rounded-md px-4 py-3 text-sm text-white placeholder-zinc-600 focus:outline-none focus:border-brand-accent transition-all min-w-[44px] min-h-[44px]">
-                        </div>
-                        <div class="pt-4">
-                            <button type="submit" class="w-full bg-brand-accent text-white font-bold uppercase tracking-wider text-sm py-4 rounded-md hover:bg-brand-accentHover hover:shadow-lg active:scale-[0.99] transition-all min-w-[44px] min-h-[44px]">
-                                Submit Form & Secure Pass
-                            </button>
-                        </div>
-                    </form>
-                    <!-- END OF SPARK ENTRY REAL ESTATE -->
-
-                </div>
+    <!-- Lead Capturing Registration Form Section -->
 
 
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer Blueprint -->
-    <footer class="bg-zinc-950 border-t border-zinc-900 py-8 px-4 text-center text-xs text-brand-muted font-light">
-        <div class="max-w-6xl mx-auto space-y-2">
-            <p>© 2026 JJ Machado Bedford Academy. Featuring Elite No-Gi Instruction under Coach Chauncey.</p>
-            <p>Leveraging continuous premium mat access rules across Colleyville, Hurst, and Bedford complexes.</p>
-        </div>
-    </footer>
-
-</body>
-</html>
-
-
+    
