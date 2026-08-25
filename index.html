@@ -151,6 +151,6 @@
     </section>
 
     <!-- Lead Capturing Registration Form Section -->
-
+async function submitLead(event) {event.preventDefault();const submitBtn = document.getElementById('submitBtn');submitBtn.disabled = true;submitBtn.innerText = "Processing...";const payload = {firstName: document.getElementById('first_name').value,lastName: document.getElementById('last_name').value,phone: document.getElementById('cell_phone').value,email: document.getElementById('email_address').value};try {// Live function URL generated from your successful workflow build runconst azureFunctionUrl = 'azurewebsites.net';const response = await fetch(azureFunctionUrl, {method: 'POST',headers: { 'Content-Type': 'application/json' },body: JSON.stringify(payload)});if (response.ok) {if (typeof gtag === 'function') {gtag('event', 'generate_lead', {'event_category': 'engagement','event_label': 'Spark Campaign Sign Up'});}alert("Thank you! Your information has been registered smoothly.");document.getElementById('leadForm').reset();} else {alert("There was an error saving your entry. Please try again.");}} catch (error) {console.error("Error Processing Submit Request:", error);alert("Network connection error. Please try again later.");} finally {submitBtn.disabled = false;submitBtn.innerText = "Submit Form & Secure Pass";}}
 
     
