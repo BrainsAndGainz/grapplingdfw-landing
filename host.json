@@ -1,0 +1,10 @@
+{
+  "name": "form-landing-backend",
+  "version": "1.0.0",
+  "description": "Azure Function Backend for Lead Forms",
+  "main": "src/functions/formLanding.js",
+  "dependencies": {
+    "@azure/functions": "^4.0.0",
+    "@azure/storage-blob": "^12.17.0"
+  }
+}
