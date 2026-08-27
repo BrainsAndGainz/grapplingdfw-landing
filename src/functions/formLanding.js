@@ -17,19 +17,34 @@ app.http('formLanding', {
 
         try {
             const body = await request.json();
-            const { firstName, lastName, phone, email } = body;
+            const { firstName, lastName, phone, email } = body || {};
 
             if (!firstName || !lastName || !phone || !email) {
                 return { status: 400, headers: headers, body: "Missing required fields" };
             }
 
-            const clean = (val) => `"${val.trim().replace(/"/g, '""')}"`;
+            const clean = (val) => `"${String(val).trim().replace(/"/g, '""')}"`;
             const csvLine = `${clean(firstName)},${clean(lastName)},${clean(phone)},${clean(email)}\n`;
 
-            const blobServiceClient = BlobServiceClient.fromConnectionString(process.env.AzureWebJobsStorage);
+            // Validate storage connection string
+            const connStr = process.env.AzureWebJobsStorage;
+            if (!connStr) {
+                context.error('AzureWebJobsStorage is not set in Application Settings');
+                return { status: 500, headers: headers, body: 'Server misconfiguration: storage not configured' };
+            }
+
+            const blobServiceClient = BlobServiceClient.fromConnectionString(connStr);
             const containerClient = blobServiceClient.getContainerClient('leads');
-            
-            const todayDate = new Date().toISOString().split('T');
+
+            // Ensure container exists (create if missing)
+            try {
+                await containerClient.createIfNotExists();
+            } catch (err) {
+                context.error('Failed to create or access container "leads":', err);
+                return { status: 500, headers: headers, body: 'Storage container error' };
+            }
+
+            const todayDate = new Date().toISOString().split('T')[0]; // YYYY-MM-DD
             const blobName = `leads_${todayDate}.csv`;
             const blockBlobClient = containerClient.getBlockBlobClient(blobName);
 
@@ -37,17 +52,28 @@ app.http('formLanding', {
             const exists = await blockBlobClient.exists();
 
             if (exists) {
-                const downloadResponse = await blockBlobClient.download(0);
-                const currentData = await streamToString(downloadResponse.readableStreamBody);
-                finalContent = currentData + csvLine;
+                try {
+                    const buf = await blockBlobClient.downloadToBuffer();
+                    const currentData = buf.toString('utf8');
+                    finalContent = currentData + csvLine;
+                } catch (err) {
+                    context.error('Blob download failed:', err);
+                    return { status: 500, headers: headers, body: 'Storage download failed' };
+                }
             } else {
                 const headersRow = "Name,Last Name,Phone,Email\n";
                 finalContent = headersRow + csvLine;
             }
 
-            await blockBlobClient.upload(finalContent, finalContent.length, {
-                blobHTTPHeaders: { blobContentType: 'text/csv' }
-            });
+            try {
+                const buffer = Buffer.from(finalContent, 'utf8');
+                await blockBlobClient.uploadData(buffer, {
+                    blobHTTPHeaders: { blobContentType: 'text/csv' }
+                });
+            } catch (err) {
+                context.error('Blob upload failed:', err);
+                return { status: 500, headers: headers, body: 'Storage upload failed' };
+            }
 
             return { status: 200, headers: headers, body: "Lead registered successfully" };
 
@@ -58,12 +84,3 @@ app.http('formLanding', {
     }
 });
 
-async function streamToString(readableStream) {
-    return new Promise((resolve, reject) => {
-        const chunks = [];
-        readableStream.on("data", (data) => chunks.push(data.toString()));
-        readableStream.on("end", () => resolve(chunks.join("")));
-        readableStream.on("error", reject);
-    });
-}
-//add backend function file
